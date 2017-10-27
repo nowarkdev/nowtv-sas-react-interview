@@ -36,7 +36,6 @@ it("map the users with messages", () => {
     }]));
 
     getChatLog().then(([firstMessage]) => {
-        console.log(firstMessage)
         expect(firstMessage.id).toBe('m1');
         expect(firstMessage.fullName).toBe('m s');
         expect(firstMessage.email).toBe('email');

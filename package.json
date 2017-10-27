@@ -12,7 +12,10 @@
     "moment": "^2.19.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-moment": "^0.6.5"
+    "react-moment": "^0.6.5",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-observable": "^0.16.0"
   },
   "scripts": {
     "start": "react-scripts start",

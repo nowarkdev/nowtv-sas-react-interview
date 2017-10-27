@@ -1,7 +1,21 @@
 import React, {Component} from 'react';
 import './App.css';
-import getChatLog from './service';
-import Message from "./components/message/index";
+
+import configureStore from './redux/store';
+
+import {Provider} from 'react-redux';
+import MessagesList from './components/messgesList';
+
+const store = configureStore();
+
+// const newMessage = {
+//     id: new Date().getMilliseconds(),
+//     userId: 'dummy user1',
+//     message: 'added message',
+//     timestamp: new Date(),
+//     fullName: 'Dumy User',
+//     email:'Dummy.user@email.com'
+// };
 
 class App extends Component {
 
@@ -13,22 +27,20 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
-        getChatLog().then((messages) => {
-            this.setState({messages})
-        })
-    }
-
     render() {
+       
         return (
-            <div className="container">
-                {this.state.messages.map(message => {
-                    return <Message key={message.id} {...message}/>
-
-                })}
-            </div>
+            <Provider store={store}>
+                <div className="app">
+                    <div className="container">
+                        <MessagesList />
+                    </div>
+                </div>
+            </Provider>
         );
     }
-}
+
+    }
+
 
 export default App;
